@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="style.css">
+	<script>
+		// If the value of the field have been changed, check if it is still empty: if not reset field error as empty
+		function onChangeName() {
+			if (document.getElementById("name").value != "") document.getElementById("nameError").innerHTML = "";
+		}
+		// If the value of the field have been changed, check if it is still empty: if not reset field error as empty
+		function onChangeLastName() {
+			if (document.getElementById("lastName").value != "") document.getElementById("lastNameError").innerHTML = "";
+		}
+		// If the value of the field have been changed, check if it is still empty: if not reset field error as empty
+		function onChangeEmail() {
+			if (document.getElementById("email").value != "") document.getElementById("emailError").innerHTML = "";
+		}
+		// Do validation of all fields on form submit
+		function myValidation() {
+		  // Get the value of all input fields
+		  var nameElem = document.getElementById("name").value; 
+		  var lastNameElem = document.getElementById("lastName").value;
+		  var emailElem = document.getElementById("email").value;
+
+		  // Validate non empty Name
+		  if (nameElem == "") {
+			document.getElementById("nameError").innerHTML = "Name can not be empty";
+		  } 
+		  // Validate non empty Last-Name
+		  if (lastNameElem == "") {
+			document.getElementById("lastNameError").innerHTML = "Last-Name can not be empty";
+		  } 
+		  // Validate non empty Email
+		  if (emailElem == "") {
+			document.getElementById("emailError").innerHTML = "Email can not be empty";
+		  } 
+		}
+	</script>
+</head>
+<body>
+
+<h1>Customer Information</h1>
+<form id="myForm">
+	<table>
+	  <tr>
+		 <td width="150">First name:</td>
+		 <td><input required="true" type="text" class="inputFieldNames" id="name" onchange="onChangeName()"></td>
+		 <td><label type="text" class="fieldError" id="nameError"></td>
+	  </tr>
+	  <tr>
+		 <td>Last name:</td>
+		 <td><input required="true" type="text" class="inputFieldNames" id="lastName" onchange="onChangeLastName()"></td>
+		 <td><label type="text" class="fieldError" id="lastNameError"></td>
+	  </tr>
+	  <tr>
+		 <td>Email:</td>
+		 <td><input required="true" type="email" class="inputFieldEmail" id="email" onchange="onChangeEmail()"></td>
+		 <td><label type="text" class="fieldError" id="emailError"></td>
+	  </tr>
+	</table> 
+  <hr>
+  <input type="submit" value="Submit" onclick="myValidation()">
+</form>
+
+</body>
+</html>
